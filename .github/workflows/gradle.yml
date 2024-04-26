@@ -63,7 +63,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: 22
           script: |
-            sudo docker stop $(sudo docker ps -q --filter ancestor=jw059/user)
-            sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/user
+            sudo docker stop $(sudo docker ps -q --filter ancestor=jw059/gateway)
+            sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/gateway
             sudo docker run --platform linux/amd64 -d -e destination=${{ secrets.DESTINATION }} -p 8080:8080 ${{ secrets.DOCKERHUB_USERNAME }}/gateway
             sudo docker image prune -f
