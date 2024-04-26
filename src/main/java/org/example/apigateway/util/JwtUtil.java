@@ -29,7 +29,7 @@ public class JwtUtil {
     }
 
 
-    @Value("${jwt.secret}")
+    @Value("${jwt.key}")
     private String secret;
 
     public String resolveToken(String tokenValue) {

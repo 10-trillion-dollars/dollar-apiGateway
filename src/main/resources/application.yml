@@ -10,7 +10,7 @@ spring:
         cors-configurations:
           '[/**]':
             allowedOrigins:
-              - 'http://localhost:8081'
+              - ${cors.url}
             allow-credentials: true
             allowedHeaders: '*'
             allowedMethods:
@@ -22,28 +22,30 @@ spring:
 
       routes:
         - id: dollar-user
-          uri: http://localhost:8082
+          uri: ${load.user}
           predicates:
             - Path=/users/**
 
+        - id: dollar-review
+          uri: ${load.review}
+          predicates:
+            - Path=/products/{productId}/reviews/**
+
         - id: dollar-product
-          uri: http://localhost:8083
+          uri: ${load.product}
           predicates:
             - Path=/products/**,/admin/products/**
 
         - id: dollar-order
-          uri: http://localhost:8084
+          uri: ${load.order}
           predicates:
             - Path=/order/**,/payment/**
 
-        - id: dollar-review
-          uri: http://localhost:8085
-          predicates:
-            - Path=/products/{productId}/reviews/**
 
 
 
 server:
-  port: 80
+  port: 8080
 
-jwt.key: ${jwt.secret.key}
+jwt:
+  key: ${jwt.secret.key}
