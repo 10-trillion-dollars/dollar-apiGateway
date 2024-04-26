@@ -44,9 +44,7 @@ dependencyManagement {
 	}
 }
 
-bootJar {
-	enabled = false
-}
+
 
 test {
 	useJUnitPlatform()
