@@ -25,11 +25,11 @@ jobs:
           files: ./src/main/resources/application.yml
         # 치환될 변수 정의 (변수는 GitHub Secrets에 저장)
         env:
-          cors.url: ${{ secrets.LOADBALANCER_FRONT }}
-          load.user: ${{ secrets.LOADBALANCER_USER }}
-          load.product: ${{ secrets.LOADBALANCER_PRODUCT }}
-          load.order: ${{ secrets.LOADBALANCER_ORDER }}
-          load.review: ${{ secrets.LOADBALANCER_REVIEW }}
+          spring.cloud.gateway.globalcors.cors-configurations.allowedOrigins: ${{ secrets.LOADBALANCER_FRONT }}
+          spring.cloud.gateway.routes[0].uri: ${{ secrets.LOADBALANCER_USER }}
+          spring.cloud.gateway.routes[1].uri: ${{ secrets.LOADBALANCER_PRODUCT }}
+          spring.cloud.gateway.routes[2].uri: ${{ secrets.LOADBALANCER_ORDER }}
+          spring.cloud.gateway.routes[3].uri: ${{ secrets.LOADBALANCER_REVIEW }}
           jwt.key: ${{ secrets.JWT_KEY }}
 
 
