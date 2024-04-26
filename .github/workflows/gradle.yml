@@ -30,10 +30,10 @@ jobs:
 #          spring.cloud.gateway.routes[1].uri: ${{ secrets.LOADBALANCER_REVIEW }}
 #          spring.cloud.gateway.routes[2].uri: ${{ secrets.LOADBALANCER_PRODUCT }}
 #          spring.cloud.gateway.routes[3].uri: ${{ secrets.LOADBALANCER_ORDER }}
-          load.user: ${{ secrets.LOADBALANCER_USER }}
-          load.review: ${{ secrets.LOADBALANCER_REVIEW }}
-          load.product: ${{ secrets.LOADBALANCER_PRODUCT }}
-          load.order: ${{ secrets.LOADBALANCER_ORDER }}
+          ${load.user}: ${{ secrets.LOADBALANCER_USER }}
+          ${load.review}: ${{ secrets.LOADBALANCER_REVIEW }}
+          ${load.product}: ${{ secrets.LOADBALANCER_PRODUCT }}
+          ${load.order}: ${{ secrets.LOADBALANCER_ORDER }}
           jwt.key: ${{ secrets.JWT_KEY }}
 
 
